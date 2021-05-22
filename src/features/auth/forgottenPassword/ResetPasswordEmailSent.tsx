@@ -24,6 +24,8 @@ import { padding, Spacer, Typo } from 'ui/theme'
 
 type Props = StackScreenProps<RootStackParamList, 'ResetPasswordEmailSent'>
 
+const updatedText = `Consulter l'article d'aide`
+
 export const ResetPasswordEmailSent: FunctionComponent<Props> = ({ route }) => {
   const complexGoBack = useBackNavigation()
   const previousRoute = usePreviousRoute()
@@ -61,7 +63,7 @@ export const ResetPasswordEmailSent: FunctionComponent<Props> = ({ route }) => {
           </CenteredText>
           <Spacer.Column numberOfSpaces={5} />
           <ButtonTertiary
-            title={t`Consulter l'article d'aide`}
+            title={updatedText}
             onPress={() =>
               openExternalUrl(
                 'https://aide.passculture.app/fr/articles/5261997-je-n-ai-pas-recu-le-mail-de-confirmation-de-changement-de-mot-de-passe'

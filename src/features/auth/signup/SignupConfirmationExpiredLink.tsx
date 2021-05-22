@@ -23,6 +23,8 @@ import { ColorsEnum, Spacer, Typo } from 'ui/theme'
 
 type Props = StackScreenProps<RootStackParamList, 'SignupConfirmationExpiredLink'>
 
+const updatedText = `Consulter l'article d'aide`
+
 export function SignupConfirmationExpiredLink(props: Props) {
   const { navigate } = useNavigation<UseNavigationType>()
   const { email } = props.route.params
@@ -59,7 +61,7 @@ export function SignupConfirmationExpiredLink(props: Props) {
       {/*/>*/}
       {/*<Spacer.Column numberOfSpaces={4} />*/}
       <ButtonTertiaryWhite
-        title={t`Consulter l'article d'aide`}
+        title={updatedText}
         onPress={() =>
           openExternalUrl(
             'https://aide.passculture.app/fr/articles/5261997-je-n-ai-pas-recu-le-mail-de-confirmation-de-changement-de-mot-de-passe'

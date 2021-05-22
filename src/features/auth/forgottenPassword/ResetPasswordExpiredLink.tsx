@@ -21,6 +21,8 @@ import { ColorsEnum, Spacer, Typo } from 'ui/theme'
 
 type Props = StackScreenProps<RootStackParamList, 'ResetPasswordExpiredLink'>
 
+const updatedText = `Consulter l'article d'aide`
+
 export function ResetPasswordExpiredLink(props: Props) {
   const { navigate } = useNavigation<UseNavigationType>()
   const { refetch: resetPasswordEmailQuery, isFetching } = useQuery(
@@ -51,7 +53,7 @@ export function ResetPasswordExpiredLink(props: Props) {
       <StyledBody>{t`Si tu as besoin d’aide n’hésite pas à :`}</StyledBody>
       <Spacer.Column numberOfSpaces={4} />
       <ButtonTertiaryWhite
-        title={t`Consulter l'article d'aide`}
+        title={updatedText}
         onPress={() =>
           openExternalUrl(
             'https://aide.passculture.app/fr/articles/5261997-je-n-ai-pas-recu-le-mail-de-confirmation-de-changement-de-mot-de-passe'
