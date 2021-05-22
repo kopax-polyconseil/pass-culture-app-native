@@ -1812,10 +1812,10 @@
   resolved "https://registry.yarnpkg.com/@open-draft/until/-/until-1.0.3.tgz#db9cc719191a62e7d9200f6e7bab21c5b848adca"
   integrity sha512-Aq58f5HiWdyDlFffbbSjAlv596h/cOnt2DO1w3DOC7OJ5EHs0hd/nycJfiu9RJbT6Yk6F1knnRRXNSpxoIVZ9Q==
 
-"@pass-culture/id-check@^2.0.7":
-  version "2.0.7"
-  resolved "https://registry.yarnpkg.com/@pass-culture/id-check/-/id-check-2.0.7.tgz#f80c25bf85c559b7c2219ce5bcc46e85bb30cc6f"
-  integrity sha512-jvWPB3b/+YKaEsnV02K6YdBXUcNDENZiZJk0LghTTK1qPrl9o7DRcT156oFtsBS3qiFwekt6QH9VZEN/GFzLqw==
+"@pass-culture/id-check@^2.0.9":
+  version "2.0.9"
+  resolved "https://registry.yarnpkg.com/@pass-culture/id-check/-/id-check-2.0.9.tgz#8fe46627e336024dd6c6962dd1aef33c98b196dd"
+  integrity sha512-YBanw5liEgZjT5NWsobizo/UsPCMNN7LJmEn41axG171LB2XZoIaH09Q9Tg4FsToxEBaYHWR8YKi8Xr+wEsX1w==
   dependencies:
     deepmerge "^4.2.2"
     lodash "^4.17.21"
@@ -1826,11 +1826,6 @@
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/@ptomasroos/react-native-multi-slider/-/react-native-multi-slider-2.2.2.tgz#35a97fb8c355627c6a2ded010b360ac5728b44ad"
   integrity sha512-HWyCnRD3Z3SbHK2FLWYmBBqd1B4iXipeKv1+AK0FoY/CElEDTEixHE8hN60TsqxalPrznn798LE2Q4tHuCiyaA==
-
-"@react-native-clipboard/clipboard@^1.7.0":
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/@react-native-clipboard%2fclipboard/-/clipboard-1.7.0.tgz#43320841870b82b2f311f375dd5f178da46e244e"
-  integrity sha512-i5dJgR+wM8Om+hFEB/PqNb65/x5WxpaZG+UjEBX2/gmmIrmAWI72tI9rVL1gjPA9RWNpdpzvp+ioGjpdl7MyWQ==
 
 "@react-native-community/async-storage@^1.7.1":
   version "1.12.0"
