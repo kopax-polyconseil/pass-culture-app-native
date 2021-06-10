@@ -100,7 +100,9 @@ export function useLogoutRoutine(): () => Promise<void> {
       await LocalStorageService.resetProfile()
       await LocalStorageService.resetLicenceToken()
     } catch (err) {
-      errorMonitoring.captureException(err)
+      const wrappedErr = new Error(err)
+      wrappedErr.message = `[failed here] ${wrappedErr.message} ${JSON.stringify(wrappedErr)}`
+      errorMonitoring.captureException(wrappedErr)
     } finally {
       setIsLoggedIn(false)
     }
