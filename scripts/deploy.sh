@@ -89,6 +89,9 @@ while getopts ":e:o:t:h:d" opt; do
 done
 
 check_dependency
+echo -e " changes are: * * * * *"
+git status -s
+
 
 [[ -z $(git status -s) ]] || warn 'Please make sure you deploy with no changes or untracked files. You can run *git stash --include-untracked*.'
 
