@@ -1,5 +1,6 @@
+import { getSpacing } from '@pass-culture/id-check'
 import React, { useCallback, useState } from 'react'
-import { FlatList, NativeScrollEvent, NativeSyntheticEvent } from 'react-native'
+import { FlatList, NativeScrollEvent, NativeSyntheticEvent, Text } from 'react-native'
 import styled from 'styled-components/native'
 
 import { BusinessModule, ExclusivityModule, OffersModule } from 'features/home/components'
@@ -13,6 +14,7 @@ import {
 import { useFunctionOnce } from 'features/offer/services/useFunctionOnce'
 import { analytics } from 'libs/analytics'
 import { isCloseToBottom } from 'libs/analytics.utils'
+import { env } from 'libs/environment'
 import { useGeolocation } from 'libs/geolocation'
 import { SearchHit } from 'libs/search'
 import { Spacer } from 'ui/theme'
@@ -115,21 +117,19 @@ export const HomeBody = (props: HomeBodyProps) => {
 
   return (
     <Container>
-      <FlatList
-        testID="homeBodyScrollView"
-        scrollEventThrottle={400}
-        bounces={false}
-        onScroll={onScroll}
-        data={displayedModules}
-        renderItem={renderModule}
-        keyExtractor={keyExtractor}
-        ListHeaderComponent={ListHeaderComponent}
-        ListFooterComponent={<Spacer.TabBar />}
-        ItemSeparatorComponent={ItemSeparatorComponent}
-      />
+      <Text>{`APPS_FLYER_DEV_KEY${env.APPS_FLYER_DEV_KEY}`}</Text>
+      <Text>{`CODEPUSH_KEY_ANDROID${env.CODEPUSH_KEY_ANDROID}`}</Text>
+      <Text>{`CODEPUSH_KEY_IOS${env.CODEPUSH_KEY_IOS}`}</Text>
+      <Text>{`BATCH_API_KEY_ANDROID${env.BATCH_API_KEY_ANDROID}`}</Text>
+      <Text>{`BATCH_API_KEY_IOS${env.BATCH_API_KEY_IOS}`}</Text>
+      <Text>{`CONTENTFUL_ACCESS_TOKEN${env.CONTENTFUL_ACCESS_TOKEN}`}</Text>
+      <Text>{`ALGOLIA_SEARCH_API_KEY${env.ALGOLIA_SEARCH_API_KEY}`}</Text>
+      <Text>{`APP_SEARCH_KEY${env.APP_SEARCH_KEY}`}</Text>
+      <Text>{`RECOMMENDATION_TOKEN${env.RECOMMENDATION_TOKEN}`}</Text>
+      <Text>{Object.keys(env)}</Text>
       <Spacer.Column numberOfSpaces={6} />
     </Container>
   )
 }
 
-const Container = styled.View({ flexBasis: 1, flexGrow: 1, flexShrink: 0 })
+const Container = styled.View({ flexBasis: 1, flexGrow: 1, flexShrink: 0, padding: getSpacing(10) })
