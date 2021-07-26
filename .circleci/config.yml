@@ -349,6 +349,7 @@ jobs:
       - run:
           name: Deploy Android App for production environment
           command: |
+            export ANDROID_APPCENTER_API_TOKEN=$ANDROID_PRODUCTION_APPCENTER_API_TOKEN
             ./scripts/deploy.sh -o android -t hard -e production
 
   deploy-ios-production-hard:
@@ -372,6 +373,7 @@ jobs:
           name: Deploy IOS App for production environment
           no_output_timeout: 30m
           command: |
+            export IOS_APPCENTER_API_TOKEN=$IOS_PRODUCTION_APPCENTER_API_TOKEN
             ./scripts/deploy.sh -o ios -t hard -e production
 
   deploy-soft-production:
@@ -491,20 +493,14 @@ workflows:
             - run-tests
       - deploy-android-production-hard:
           filters:
-            tags:
-              only: /^prod-hard-deploy.*/
             branches:
-              ignore: /.*/
-          requires:
-            - run-tests
+              only:
+                - /.*/
       - deploy-ios-production-hard:
           filters:
-            tags:
-              only: /^prod-hard-deploy.*/
             branches:
-              ignore: /.*/
-          requires:
-            - run-tests
+              only:
+                - /.*/
       - notify-hard-release:
           filters:
             tags:
@@ -516,9 +512,6 @@ workflows:
             - deploy-android-production-hard
       - deploy-soft-production:
           filters:
-            tags:
-              only: /^hotfix-production.*/
             branches:
-              ignore: /.*/
-          requires:
-            - run-tests
+              only:
+                - /.*/
