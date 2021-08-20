@@ -1,4 +1,5 @@
 import React, { memo, useContext, useEffect } from 'react'
+import { Linking } from 'react-native'
 
 import { useAppStateChange } from 'libs/appState'
 import { useSafeState } from 'libs/hooks'
@@ -13,6 +14,8 @@ import {
   IGeolocationContext,
   RequestGeolocPermissionParams,
 } from './types'
+import { GeolocationActivationModal } from 'libs/geolocation/components/GeolocationActivationModal'
+import { useModal } from 'ui/components/modals/useModal'
 
 export const GeolocationContext = React.createContext<IGeolocationContext>({
   position: null,
@@ -22,6 +25,9 @@ export const GeolocationContext = React.createContext<IGeolocationContext>({
     // nothing
   },
   triggerPositionUpdate: () => undefined,
+  isGeolocPermissionModalVisible: false,
+  showGeolocPermissionModal: () => null,
+  hideGeolocPermissionModal: () => null,
 })
 
 export const GeolocationWrapper = memo(function GeolocationWrapper({
@@ -34,6 +40,12 @@ export const GeolocationWrapper = memo(function GeolocationWrapper({
   const [permissionState, setPermissionState] = useSafeState<GeolocPermissionState>(
     GeolocPermissionState.DENIED
   )
+
+  const {
+    visible: isGeolocPermissionModalVisible,
+    showModal: showGeolocPermissionModal,
+    hideModal: hideGeolocPermissionModal,
+  } = useModal(false)
 
   useEffect(() => {
     contextualCheckPermission()
@@ -64,6 +76,8 @@ export const GeolocationWrapper = memo(function GeolocationWrapper({
     const newPermissionState: GeolocPermissionState = await checkGeolocPermission()
     if (isGranted(newPermissionState)) {
       triggerPositionUpdate()
+    } else {
+      setPosition(null)
     }
     setPermissionState(newPermissionState)
   }
@@ -80,6 +94,11 @@ export const GeolocationWrapper = memo(function GeolocationWrapper({
     // nothing
   }
 
+  function onPressGeolocPermissionModalButton() {
+    Linking.openSettings()
+    hideGeolocPermissionModal()
+  }
+
   return (
     <GeolocationContext.Provider
       value={{
@@ -88,8 +107,16 @@ export const GeolocationWrapper = memo(function GeolocationWrapper({
         permissionState,
         requestGeolocPermission: contextualRequestGeolocPermission,
         triggerPositionUpdate,
+        isGeolocPermissionModalVisible,
+        showGeolocPermissionModal,
+        hideGeolocPermissionModal,
       }}>
       {children}
+      <GeolocationActivationModal
+        isGeolocPermissionModalVisible={isGeolocPermissionModalVisible}
+        hideGeolocPermissionModal={hideGeolocPermissionModal}
+        onPressGeolocPermissionModalButton={onPressGeolocPermissionModalButton}
+      />
     </GeolocationContext.Provider>
   )
 })
