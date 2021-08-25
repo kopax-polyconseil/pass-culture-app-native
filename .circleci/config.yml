@@ -720,7 +720,7 @@ workflows:
             tags:
               only:
                 - /^v.*/
-                - /^hotfix-integration.*/
+                - /^hotfix-production.*/
             branches:
               ignore: /.*/
           requires:
