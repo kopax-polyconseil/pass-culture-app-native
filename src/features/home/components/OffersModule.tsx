@@ -79,6 +79,11 @@ export const OffersModule = (props: OffersModuleProps) => {
   )
 
   const onPressSeeMore = useCallback(() => {
+    analytics.logCampaignDetails({
+      source: 'source-organic',
+      medium: `medium-${display.layout}`,
+      campaign: `campaign-${moduleName}`,
+    })
     analytics.logClickSeeMore(moduleName)
     const params = parseSearchParameters({ geolocation: position, parameters })
     navigate('Search', params)

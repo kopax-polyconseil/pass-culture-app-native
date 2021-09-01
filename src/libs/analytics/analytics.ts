@@ -15,6 +15,7 @@ export const analytics = {
   enableCollection: analyticsProvider.enableCollection,
   disableCollection: analyticsProvider.disableCollection,
   setUserId: analyticsProvider.setUserId,
+  logCampaignDetails: analyticsProvider.logCampaignDetails,
   logLogin({ method }: { method: LoginRoutineMethod }) {
     analyticsProvider.logLogin({ method })
   },

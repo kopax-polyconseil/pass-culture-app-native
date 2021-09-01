@@ -1,4 +1,4 @@
-import firebaseAnalyticsModule from '@react-native-firebase/analytics'
+import firebaseAnalyticsModule, { FirebaseAnalyticsTypes } from '@react-native-firebase/analytics'
 
 import { AnalyticsProvider } from './types'
 
@@ -13,6 +13,9 @@ export const analyticsProvider: AnalyticsProvider = {
   },
   setUserId(userId) {
     firebaseAnalytics.setUserId(userId.toString())
+  },
+  logCampaignDetails(params: FirebaseAnalyticsTypes.CampaignDetailsEventParameters) {
+    firebaseAnalytics.logCampaignDetails(params)
   },
   async logScreenView(screenName) {
     await firebaseAnalytics.logScreenView({ screen_name: screenName, screen_class: screenName })
