@@ -12,6 +12,7 @@ import { parseType } from 'libs/parsers'
 import { highlightLinks } from 'libs/parsers/highlightLinks'
 import { AccessibilityBlock } from 'ui/components/accessibility/AccessibilityBlock'
 import { AccordionItem } from 'ui/components/AccordionItem'
+import { ContactBlock } from 'ui/components/contact/ContactBlock'
 import { Hero } from 'ui/components/hero/Hero'
 import { PartialAccordionDescription } from 'ui/components/PartialAccordionDescription'
 import { SectionWithDivider } from 'ui/components/SectionWithDivider'
@@ -44,6 +45,7 @@ export const VenueBody: FunctionComponent<Props> = ({ venueId, onScroll }) => {
     venueTypeCode,
     description,
     accessibility,
+    contact,
   } = venue
 
   const venueAddress = address
@@ -121,6 +123,13 @@ export const VenueBody: FunctionComponent<Props> = ({ venueId, onScroll }) => {
       <SectionWithDivider visible={shouldShowAccessibility}>
         <AccordionItem title={t`Accessibilité`} scrollViewRef={scrollViewRef}>
           <AccessibilityBlock {...accessibility} />
+        </AccordionItem>
+      </SectionWithDivider>
+
+      {/* Contact */}
+      <SectionWithDivider visible={true}>
+        <AccordionItem title={t`Contact`} scrollViewRef={scrollViewRef}>
+          <ContactBlock {...contact} venue={venue} />
         </AccordionItem>
       </SectionWithDivider>
 
