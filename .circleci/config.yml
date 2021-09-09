@@ -717,12 +717,14 @@ workflows:
             - GCP_EHP
       - deploy-web-integration:
           filters:
-            tags:
-              only:
-                - /^v.*/
-                - /^hotfix-production.*/
             branches:
-              ignore: /.*/
+              only: PC-10505/mettre-en-place-ci-integration
+#            tags:
+#              only:
+#                - /^v.*/
+#                - /^hotfix-production.*/
+#            branches:
+#              ignore: /.*/
           requires:
             - test-lint-and-types
             - test-web
