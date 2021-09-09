@@ -483,8 +483,8 @@ jobs:
     docker:
       - image: europe-west1-docker.pkg.dev/passculture-infra-prod/pass-culture-tools/node-gcp:12
         auth:
-            username: _json_key  # default username when using a JSON key file to authenticate
-            password: $GCP_INFRA_KEY
+          username: _json_key # default username when using a JSON key file to authenticate
+          password: $GCP_INFRA_KEY
     working_directory: ~/pass-culture
     steps:
       - checkout
@@ -500,8 +500,8 @@ jobs:
     docker:
       - image: europe-west1-docker.pkg.dev/passculture-infra-prod/pass-culture-tools/node-gcp:12
         auth:
-            username: _json_key  # default username when using a JSON key file to authenticate
-            password: $GCP_INFRA_KEY
+          username: _json_key # default username when using a JSON key file to authenticate
+          password: $GCP_INFRA_KEY
     working_directory: ~/pass-culture
     steps:
       - checkout
@@ -517,8 +517,8 @@ jobs:
     docker:
       - image: europe-west1-docker.pkg.dev/passculture-infra-prod/pass-culture-tools/node-gcp:12
         auth:
-            username: _json_key  # default username when using a JSON key file to authenticate
-            password: $GCP_INFRA_KEY
+          username: _json_key # default username when using a JSON key file to authenticate
+          password: $GCP_INFRA_KEY
     working_directory: ~/pass-culture
     steps:
       - checkout
@@ -534,8 +534,8 @@ jobs:
     docker:
       - image: europe-west1-docker.pkg.dev/passculture-infra-prod/pass-culture-tools/node-gcp:12
         auth:
-            username: _json_key  # default username when using a JSON key file to authenticate
-            password: $GCP_INFRA_KEY
+          username: _json_key # default username when using a JSON key file to authenticate
+          password: $GCP_INFRA_KEY
     working_directory: ~/pass-culture
     steps:
       - checkout
